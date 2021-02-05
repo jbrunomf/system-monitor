@@ -1,0 +1,11 @@
+.env
+
+.pyc
+
+env.py
+
+.pycache
+
+.idea
+
+venv
