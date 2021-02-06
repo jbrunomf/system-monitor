@@ -55,3 +55,16 @@ p.logo {
     border: black 2px solid;
 }
 
+#content-main{
+    position: absolute;
+    display: inline-flex;
+}
+
+.sidebar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-flex
+

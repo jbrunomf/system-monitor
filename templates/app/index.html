@@ -19,29 +19,31 @@
 {#    </div>#}
 {#</header>#}
 
-<div class="content">
-    <div class="sidebar">
-        <nav class="nav flex-column">
-            <div class="container">
-                <div class="logo">
-                    <p class="logo">LOGO</p>
-                </div>
+{#Sidebar#}
+<div class="sidebar-container">
+    <nav class="nav flex-column">
+        <div class="container">
+            <div class="logo">
+                <p class="logo">LOGO</p>
             </div>
-            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-            <a class="nav-link" href="#">Processos</a>
-            <a class="nav-link" href="#">Network</a>
-            <a class="nav-link" href="#">Discos</a>
-            <a class="nav-link" href="#">Logs</a>
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </nav>
-    </div>
+        </div>
+        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        <a class="nav-link" href="#">Processos</a>
+        <a class="nav-link" href="#">Network</a>
+        <a class="nav-link" href="#">Discos</a>
+        <a class="nav-link" href="#">Logs</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </nav>
+</div>
+
+<div class="main-content">
     <div class="sm-header">
         <div class="sm-text">
             <h5>SystemMonitor</h5>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="services">
+    <div class="container-fluid" id="content-main">
+        <div class="container-fluid">
             <h1>Services</h1>
         </div>
     </div>
