@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import processes, process
+from .views import processes, process, index
 
 urlpatterns = [
-    path('', processes, name='processes_list'),
+    path('', index, name='index'),
+    path('processes', processes, name='processes_list'),
     path('process/<int:pid>/', process, name='process'),
 ]
