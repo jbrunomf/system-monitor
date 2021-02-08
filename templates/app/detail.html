@@ -1,13 +1,52 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Process Details</title>
-</head>
-<body>
-<h1>{{ process.name }}</h1>
-</body>
-</html>
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">{{ process.name }}</th>
+
+        </tr>
+        <tbody>
+        <tr>
+            <td><h5>PID</h5></td>
+            <td>{{ process.pid }}</td>
+        </tr>
+        <tr>
+            <td>Parent</td>
+            <td>{{ process.parent.name }}</td>
+        </tr>
+        <tr>
+            <td>Executavel</td>
+            <td>{{ process.exe }}</td>
+        </tr>
+        <tr>
+            <td>Usuário</td>
+            <td>{{ process.user }}</td>
+        </tr>
+        <tr>
+            <td>Gids</td>
+            <td>Pesquisar</td>
+        </tr>
+        <tr>
+            <td>Uids</td>
+            <td>Pesquisar</td>
+        </tr>
+        </tbody>
+        <tr>
+            <th scope="col">Memória</th>
+            <td> VMS: {{ process.memory.vms }}</td>
+            <td> RSS: {{ process.memory.rss }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Terminal</th>
+            <td>None</td>
+        </tr>
+        <tr>
+            <th scope="col">Status</th>
+            <td>{{ process.status }}</td>
+        </tr>
+    </table>
+
+{% endblock %}

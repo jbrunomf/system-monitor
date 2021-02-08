@@ -1,0 +1,42 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Interface</th>
+            <th scope="col">IP</th>
+            <th scope="col">Bytes env.</th>
+            <th scope="col">Bytes receb.</th>
+            <th scope="col">Pacotes env.</th>
+            <th scope="col">Pacotes rec.</th>
+            <th scope="col">Erros (in)</th>
+            <th scope="col">Erros (out)</th>
+            <th scope="col">Dropped in</th>
+            <th scope="col">Dropped out</th>
+{#            <th scope="col">RX/s</th>#}
+{#            <th scope="col">TX/s</th>#}
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for network in networks %}
+            <tr>
+                <td>{{ network.name }}</td>
+                <td>{{ network.address }}</td>
+                <td>{{ network.bytes_sent }}</td>
+                <td>{{ network.bytes_rec }}</td>
+                <td>{{ network.packets_sent }}</td>
+                <td>{{ network.packets_recv }}</td>
+                <td>{{ network.errors_in }}</td>
+                <td>{{ network.errors_out }}</td>
+                <td>{{ network.drop_in }}</td>
+                <td>{{ network.drop_out }}</td>
+{#                <td>{{ network.drop_out }}</td>#}
+{#                <td>{{ network.drop_out }}</td>#}
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+
+{% endblock %}

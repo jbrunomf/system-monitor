@@ -1,69 +1,19 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Home</title>
-</head>
+{% extends 'app/base.html' %}
 
-<body>
-<div class="container-fluid px-0">
-    <!--- Início Header --->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">System Monitor</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Dashboard <span class="sr-only">(Página atual)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Destaques</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Preços</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Link dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Ação</a>
-                            <a class="dropdown-item" href="#">Outra ação</a>
-                            <a class="dropdown-item" href="#">Algo mais aqui</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!--- Fim Header --->
 
+{#<div class="container-fuid main">#}
+{#    <div class="row">#}
+{#        <!--- Inicio menu --->#}
+{#        <div class="col-sm-1">#}
+{#            <nav class="nav flex-column">#}
+{#                <a class="nav-link active" href="{% url 'index' %}">Dashboard</a>#}
+{#                <a class="nav-link" href="{% url 'processes_list' %}">Processos</a>#}
+{#                <a class="nav-link" href="#">Link</a>#}
+{#                <a class="nav-link disabled" href="#">Desativado</a>#}
+{#            </nav>#}
+{#        </div>#}
+{#        <!--- Fim menu --->#}
 {% block content %}
-    <div class="container-fuid main">
-        <div class="row">
-            <!--- Inicio menu --->
-            <div class="col-sm-1">
-                <nav class="nav flex-column">
-                    <a class="nav-link active" href="{% url 'index' %}">Dashboard</a>
-                    <a class="nav-link" href="{% url 'processes_list' %}">Processos</a>
-                    <a class="nav-link" href="#">Link</a>
-                    <a class="nav-link disabled" href="#">Desativado</a>
-                </nav>
-            </div>
-            <!--- Fim menu --->
-
             <!--- Inicio Content --->
             <div class="col">
                 <div class="row">
@@ -100,7 +50,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="row">MEMÓRIA</th>
+                                <th scope="row">Memoria</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -123,12 +73,12 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="row">REDE</th>
+                                <th scope="row">Rede</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">Loppback</th>
+                                <th scope="row">Loopback</th>
                                 <td>{{ network.status }} </td>
                             </tr>
                             <tr>
@@ -145,16 +95,16 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="row">DISCOS</th>
+                                <th scope="row">Discos</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">PONTO DE MONTAGEM</th>
+                                <th scope="row">Ponto de montagem</th>
                                 <td>{{ disk.mountpoint }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">FILESYSTEM</th>
+                                <th scope="row">Filesystem</th>
                                 <td>{{ disk.fstype }}</td>
                             </tr>
                             </tbody>
@@ -164,20 +114,20 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="row">SWAP</th>
+                                <th scope="row">Swap</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">TOTAL</th>
+                                <th scope="row">Total</th>
                                 <td>{{ swap.total }} MB</td>
                             </tr>
                             <tr>
-                                <th scope="row">USADO</th>
+                                <th scope="row">Usado</th>
                                 <td>{{ swap.used }} MB</td>
                             </tr>
                             <tr>
-                                <th scope="row">LIVRE</th>
+                                <th scope="row">Livre</th>
                                 <td>{{ swap.free }} MB</td>
                             </tr>
                             </tbody>
@@ -187,16 +137,16 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="row">USUÁRIOS</th>
+                                <th scope="row">Usuários</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">USUÁRIO</th>
-                                <td>{{ users.name}}</td>
+                                <th scope="row">Usuário</th>
+                                <td>{{ users.name }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">TERMINAL</th>
+                                <th scope="row">Terminal</th>
                                 <td>{{ users.terminal }}</td>
                             </tr>
                             </tbody>
@@ -205,16 +155,8 @@
                 </div>
             </div>
             <!--- Fim Content --->
-        </div>
-    </div>
+{#            </div>#}
+{#            </div>#}
 
 
-</div>
-{% endblock %}
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        {% endblock %}
