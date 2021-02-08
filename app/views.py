@@ -75,8 +75,8 @@ def process(request, pid):
         # 'terminal': psutil.Process(pid).terminal,
         'status': psutil.Process(pid).status,
         'memory': {
-            'rss': psutil.Process(pid).memory_info().rss,
-            'vms': psutil.Process(pid).memory_info().vms,
+            'rss': psutil.Process(pid).memory_info().rss//1048576,
+            'vms': psutil.Process(pid).memory_info().vms//1048576,
             # 'shared': psutil.Process(pid).memory_info().shared,
             # 'text': psutil.Process(pid).memory_info().text,
             # 'lib': psutil.Process(pid).memory_info().lib,

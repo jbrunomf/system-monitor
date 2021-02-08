@@ -21,7 +21,7 @@
                 {% for process in processes %}
                     <tr>
                         <td>{{ process.pid }}</td>
-                        <td><a href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
+                        <td><a class="process" href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
                         <td>{{ process.username }}</td>
                         <td>{{ process.status }}</td>
                         <td>{{ process.memory_percent }}%</td>
