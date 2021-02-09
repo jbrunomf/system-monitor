@@ -2,38 +2,36 @@
 
 
 {% block content %}
-{#    <div class="container">#}
-        <div class="container-fluid">
-            <table class="table">
-                <thead>
+    <div class="container-fluid" id="info-panel">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">PID</th>
+                <th scope="col">Name</th>
+                <th scope="col">User</th>
+                <th scope="col">Status</th>
+                <th scope="col">Memory</th>
+                <th scope="col">VMS</th>
+                <th scope="col">RSS</th>
+                <th scope="col">CPU</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for process in processes %}
                 <tr>
-                    <th scope="col">PID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Memory</th>
-                    <th scope="col">VMS</th>
-                    <th scope="col">RSS</th>
-                    <th scope="col">CPU</th>
+                    <td>{{ process.pid }}</td>
+                    <td><a class="process"
+                           href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
+                    <td>{{ process.username }}</td>
+                    <td>{{ process.status }}</td>
+                    <td>{{ process.memory_percent }}%</td>
+                    <td>{{ process.memory_info_vms }} MB</td>
+                    <td>{{ process.memory_info_rss }} MB</td>
+                    <td>{{ process.cpu_percent }} %</td>
+
                 </tr>
-                </thead>
-                <tbody>
-                {% for process in processes %}
-                    <tr>
-                        <td>{{ process.pid }}</td>
-                        <td><a class="process" href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
-                        <td>{{ process.username }}</td>
-                        <td>{{ process.status }}</td>
-                        <td>{{ process.memory_percent }}%</td>
-                        <td>{{ process.memory_info_vms }} MB</td>
-                        <td>{{ process.memory_info_rss }} MB</td>
-                        <td>{{ process.cpu_percent }} %</td>
-
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-{#    </div>#}
-
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

@@ -1,3 +1,53 @@
 a.process {
     text-decoration: none;
+    color: gray;
+}
+
+#nav-sidebar {
+    display: flex;
+    background: #2c384b;
+    text-decoration: none;
+    color: black;
+    width: 200px;
+}
+
+a.nav-link {
+    text-decoration: gray;
+    color: gray;
+}
+
+span.icon {
+    display: inline-flex;
+    align-items: center;
+    color: gray;
+
+}
+
+#info-panel {
+    border: #2c384b 2px solid;
+    border-radius: 20px;
+    background: whitesmoke;
+    margin: 10px;
+    padding: 5px;
+}
+
+div#main-content.col{
+    padding: 20px;
+    background: slategray;
+    height: auto;
+}
+
+#info-panel>h2{
+    color: #2c384b;
+}
+
+footer{
+    display: flex;
+    border-collapse: initial;
+    bottom: 0;
+    background: #2c384b;
+}
+
+.sm-footer{
+    color: aliceblue;
 }

@@ -13,210 +13,98 @@
 </head>
 
 <body>
-<div class="container-fluid px-0">
-    <!--- Início Header --->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">System Monitor</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Dashboard <span
-                                class="sr-only">(Página atual)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Destaques</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Preços</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Link dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Ação</a>
-                            <a class="dropdown-item" href="#">Outra ação</a>
-                            <a class="dropdown-item" href="#">Algo mais aqui</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!--- Fim Header --->
-
-
-    <div class="container-fuid main">
+<!--- Início Header --->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+        <a class="navbar-brand" href="#">System Monitor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Dashboard <span
+                            class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Destaques</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Preços</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Link dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Ação</a>
+                        <a class="dropdown-item" href="#">Outra ação</a>
+                        <a class="dropdown-item" href="#">Algo mais aqui</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--- Fim Header --->
+<div class="container-fluid">
+    <div class="container-fluid main px-0">
         <div class="row">
-            <!--- Inicio menu --->
-            <div class="col-sm-1">
-                <nav class="nav flex-column">
-                    <a class="nav-link active" href="{% url 'index' %}">Dashboard</a>
-                    <a class="nav-link" href="{% url 'processes_list' %}">Processos</a>
-                    <a class="nav-link" href="{% url 'disks' %}">Discos</a>
-                    <a class="nav-link" href="{% url 'network' %}">Rede</a>
-                    <a class="nav-link" href="#">Logs</a>
+            <!--- Inicio sidebar --->
+            <div class="col-sm-3" id="nav-sidebar">
+                <nav class="nav flex-column" id="nav-sidebar">
+                    <span class="icon"><a class="nav-link" href="{% url 'index' %}">Dashboard
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-list-task" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                        d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+                  <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+                  <path fill-rule="evenodd"
+                        d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+                                        </svg></a></span>
+                    <span class="icon"><a class="nav-link" href="{% url 'processes_list' %}">Processos
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-cpu-fill" viewBox="0 0 20 20">
+                    <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                    <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
+                    </svg></a></span>
+                    <span class="icon"><a class="nav-link" href="{% url 'disks' %}">Discos
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                         fill="currentColor" class="bi bi-hdd-fill" viewBox="0 0 20 20">
+                        <path d="M0 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-1zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM.91 7.204A2.993 2.993 0 0 1 2 7h12c.384 0 .752.072 1.09.204l-1.867-3.422A1.5 1.5 0 0 0 11.906 3H4.094a1.5 1.5 0 0 0-1.317.782L.91 7.204z"/>
+                    </svg></a></span>
+                    <span class="icon"><a class="nav-link" href="{% url 'network' %}">Rede                     <svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-reception-4" viewBox="0 0 20 20">
+                        <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"/>
+                    </svg></a></span>
+                    <span class="icon"></span><a class="nav-link" href="#">Logs
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-chat-square-text-fill" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                    </svg>
+                </a>
                 </nav>
             </div>
-            <!--- Fim menu --->
+            <!--- Fim sidebar --->
 
 
             <!--- Inicio Content --->
-            <div class="col">
+            <div class="col" id="main-content">
                 {% block content %}
-{#                    <div class="row">#}
-{#                        <div class="col">#}
-{#                            <div class="col">#}
-{#                                <table class="table">#}
-{#                                    <thead>#}
-{#                                    <tr>#}
-{#                                        <th scope="row">CPU</th>#}
-{#                                    </tr>#}
-{#                                    </thead>#}
-{#                                    <tbody>#}
-{#                                    <tr>#}
-{#                                        <th scope="row">Load average</th>#}
-{#                                        <td>{{ cpu.load_average }}</td>#}
-{#                                    </tr>#}
-{#                                    <tr>#}
-{#                                        <th scope="row">Cores</th>#}
-{#                                        <td>{{ cpu.cores }}</td>#}
-{#                                    </tr>#}
-{#                                    <tr>#}
-{#                                        <th scope="row">Threads</th>#}
-{#                                        <td>{{ cpu.threads }}</td>#}
-{#                                    </tr>#}
-{#                                    <tr>#}
-{#                                        <th scope="row">CPU Freq</th>#}
-{#                                        <td>{{ cpu.current_freq.current }} GHz</td>#}
-{#                                    </tr>#}
-{#                                    </tbody>#}
-{#                                </table>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            <table class="table">#}
-{#                                <thead>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Memória</th>#}
-{#                                </tr>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Total</th>#}
-{#                                    <td>{{ memory.total }} MB</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Livre</th>#}
-{#                                    <td>{{ memory.available }} MB</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Em uso</th>#}
-{#                                    <td>{{ memory.used }} MB {{ memory.percent_used }}%</td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            <table class="table">#}
-{#                                <thead>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Rede</th>#}
-{#                                </tr>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Loopback</th>#}
-{#                                    <td>{{ network.status }} </td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Ethernet</th>#}
-{#                                    <td>{{ network.status }} </td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-{##}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="row">#}
-{#                        <div class="col">#}
-{#                            <table class="table">#}
-{#                                <thead>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Discos</th>#}
-{#                                </tr>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Ponto de montagem</th>#}
-{#                                    <td>{{ disk.mountpoint }}</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Filesystem</th>#}
-{#                                    <td>{{ disk.fstype }}</td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-                        </div>
-{#                        <div class="col">#}
-{#                            <table class="table">#}
-{#                                <thead>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Swap</th>#}
-{#                                </tr>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Total</th>#}
-{#                                    <td>{{ swap.total }} MB</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Usado</th>#}
-{#                                    <td>{{ swap.used }} MB</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Livre</th>#}
-{#                                    <td>{{ swap.free }} MB</td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            <table class="table">#}
-{#                                <thead>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Usuários</th>#}
-{#                                </tr>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <th scope="row">Usuário</th>#}
-{#                                    <td>{{ users.name }}</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th scope="row">TerminalL</th>#}
-{#                                    <td>{{ users.terminal }}</td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    </div>#}
-                    <!--- Fim Content --->
-                    </div>
-                    </div>
 
-
-                    </div>
 
                 {% endblock %}
-
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <h5 class="sm-footer">footer</h5>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
