@@ -82,6 +82,7 @@ def process(request, pid):
             # 'text': psutil.Process(pid).memory_info().text,
             # 'lib': psutil.Process(pid).memory_info().lib,
             # 'dirty': psutil.Process(pid).memory_info().dirty
+
         }
     }}
     return render(request, 'app/detail.html', ctx)
