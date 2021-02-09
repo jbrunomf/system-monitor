@@ -1,14 +1,23 @@
+/*Linha principal (row)*/
+#main-row{
+    display: flex;
+    background: #2c384b;
+    width: auto;
+    height: 800px;
+}
+
 a.process {
     text-decoration: none;
-    color: gray;
+    color: #2c384b;
 }
 
 #nav-sidebar {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     background: #2c384b;
     text-decoration: none;
     color: black;
-    width: 200px;
+    width: auto;
 }
 
 a.nav-link {
@@ -34,20 +43,50 @@ span.icon {
 div#main-content.col{
     padding: 20px;
     background: slategray;
-    height: auto;
+    /*height: auto;*/
 }
 
 #info-panel>h2{
     color: #2c384b;
 }
 
+/*Footer*/
 footer{
     display: flex;
-    border-collapse: initial;
     bottom: 0;
     background: #2c384b;
+    color: gray;
+    justify-content: center;
+    padding: 15px;
 }
 
-.sm-footer{
-    color: aliceblue;
+footer>p>a {
+    text-decoration: none;
+    color: gray;
 }
+/*Final Footer*/
+
+/*Pagination*/
+div.pagination{
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+span.step-links {
+    /*align-self: center;*/
+}
+
+span.current {
+    color: #2c384b;
+}
+
+span.step-links>a{
+    text-decoration: none;
+    color: #2c384b;
+}
+
+#pagination-row{
+    text-align: center;
+}
+/*Final pagination*/

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import psutil
-
+from django.core. paginator import Paginator
 # Create your views here.
 
 
@@ -44,6 +44,7 @@ def processes(request):
     """
     ps = psutil.process_iter()
     process_list = []
+    # Paginador, para limitar o número de objetos que serão exibidos na tela.
 
     for p in ps:
         process = {'pid': p.pid,
@@ -57,10 +58,10 @@ def processes(request):
                    }
 
         process_list.append(process)
-
-    ctx = {'processes': process_list}
-
-    return render(request, 'app/list.html', ctx)
+    paginator = Paginator(process_list, 15)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'app/list.html', {'page_obj': page_obj})
 
 
 def process(request, pid):

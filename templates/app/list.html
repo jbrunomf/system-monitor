@@ -3,21 +3,23 @@
 
 {% block content %}
     <div class="container-fluid" id="info-panel">
+    <h2>Processos</h2>
+    <hr class="section-sep">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">PID</th>
-                <th scope="col">Name</th>
-                <th scope="col">User</th>
-                <th scope="col">Status</th>
-                <th scope="col">Memory</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Usuário</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Memoria %</th>
                 <th scope="col">VMS</th>
                 <th scope="col">RSS</th>
                 <th scope="col">CPU</th>
             </tr>
             </thead>
             <tbody>
-            {% for process in processes %}
+            {% for process in page_obj %}
                 <tr>
                     <td>{{ process.pid }}</td>
                     <td><a class="process"
@@ -28,10 +30,30 @@
                     <td>{{ process.memory_info_vms }} MB</td>
                     <td>{{ process.memory_info_rss }} MB</td>
                     <td>{{ process.cpu_percent }} %</td>
-
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
+    <div class="pagination">
+        <div class="container">
+         <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; primeira</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+        {% endif %}
+
+             <span class="current">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+
+             {% if page_obj.has_next %}
+                 <a href="?page={{ page_obj.next_page_number }}">próxima</a>
+                 <a href="?page={{ page_obj.paginator.num_pages }}">útima &raquo;</a>
+             {% endif %}
+    </span>
+        </div>
+    </div>
+
+
 {% endblock %}
