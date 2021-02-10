@@ -1,65 +1,71 @@
 {% extends 'app/base.html' %}
 {% block content %}
-    <div class="container-fluid" id="info-panel">
-        <h2>Armazenamento</h2>
-        <hr class="section-sep">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Dispositivo</th>
-                <th scope="col">Ponto de montagem</th>
-                <th scope="col">Filesystem</th>
-                <th scope="col">Options</th>
-                <th scope="col">Espaço total</th>
-                <th scope="col">Espaço usado</th>
-                <th scope="col">Espaço livre</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for disk in disks %}
+    <div class="row">
+        <div class="col">
+            <h2>Armazenamento</h2>
+            <hr class="section-sep">
+            <table class="table">
+                <thead>
                 <tr>
-                    <td>{{ disk.device }}</td>
-                    <td>{{ disk.mountpoint }}</td>
-                    <td>{{ disk.fstype }}</td>
-                    <td>{{ disk.options }}</td>
-                    <td>{{ disk.memory_total }} GB</td>
-                    <td>{{ disk.memory_used }} GB</td>
-                    <td>{{ disk.memory_free }} GB</td>
+                    <th scope="col">Dispositivo</th>
+                    <th scope="col">Ponto de montagem</th>
+                    <th scope="col">Filesystem</th>
+                    <th scope="col">Options</th>
+                    <th scope="col">Espaço total</th>
+                    <th scope="col">Espaço usado</th>
+                    <th scope="col">Espaço livre</th>
                 </tr>
+                </thead>
+                <tbody>
+                {% for disk in disks %}
+                    <tr>
+                        <td>{{ disk.device }}</td>
+                        <td>{{ disk.mountpoint }}</td>
+                        <td>{{ disk.fstype }}</td>
+                        <td>{{ disk.options }}</td>
+                        <td>{{ disk.memory_total }} GB</td>
+                        <td>{{ disk.memory_used }} GB</td>
+                        <td>{{ disk.memory_free }} GB</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-            {% endfor %}
-            </tbody>
-        </table>
+        </div>
     </div>
 
-    <div class="container-fluid" id="info-panel">
-        <h2>IO Counter</h2>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Dispositivo</th>
-                <th scope="col">Read count</th>
-                <th scope="col">Write count</th>
-                <th scope="col">Read bytes</th>
-                <th scope="col">Write bytes</th>
-                <th scope="col">Read time (ms)</th>
-                <th scope="col">Write time (ms)</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for disk in disks %}
+    <div class="row">
+        <div class="col">
+            <h2>IO Counter</h2>
+            <table class="table">
+                <thead>
                 <tr>
-                    <td>{{ disk.device }}</td>
-                    <td>{{ disk.io_counter.read_count }}</td>
-                    <td>{{ disk.io_counter.write_count }}</td>
-                    <td>{{ disk.io_counter.read_bytes }}</td>
-                    <td>{{ disk.io_counter.write_bytes }}</td>
-                    <td>{{ disk.io_counter.read_time }}</td>
-                    <td>{{ disk.io_counter.write_time }}</td>
+                    <th scope="col">Dispositivo</th>
+                    <th scope="col">Read count</th>
+                    <th scope="col">Write count</th>
+                    <th scope="col">Read bytes</th>
+                    <th scope="col">Write bytes</th>
+                    <th scope="col">Read time (ms)</th>
+                    <th scope="col">Write time (ms)</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for disk in disks %}
+                    <tr>
+                        <td>{{ disk.device }}</td>
+                        <td>{{ disk.io_counter.read_count }}</td>
+                        <td>{{ disk.io_counter.write_count }}</td>
+                        <td>{{ disk.io_counter.read_bytes }}</td>
+                        <td>{{ disk.io_counter.write_bytes }}</td>
+                        <td>{{ disk.io_counter.read_time }}</td>
+                        <td>{{ disk.io_counter.write_time }}</td>
+                    </tr>
+                 {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+
     </div>
-    </div>
+
+    {#    </div>#}
 {% endblock %}

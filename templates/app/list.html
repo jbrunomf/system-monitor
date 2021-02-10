@@ -1,40 +1,39 @@
-{% extends 'app/index.html' %}
+{% extends 'app/base.html' %}
 
 
 {% block content %}
-    <div class="container-fluid" id="info-panel">
     <h2>Processos</h2>
     <hr class="section-sep">
-        <table class="table">
-            <thead>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">PID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Usuário</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Memoria %</th>
+            <th scope="col">VMS</th>
+            <th scope="col">RSS</th>
+            <th scope="col">CPU</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for process in page_obj %}
             <tr>
-                <th scope="col">PID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Usuário</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Memoria %</th>
-                <th scope="col">VMS</th>
-                <th scope="col">RSS</th>
-                <th scope="col">CPU</th>
+                <td>{{ process.pid }}</td>
+                <td><a class="process"
+                       href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
+                <td>{{ process.username }}</td>
+                <td>{{ process.status }}</td>
+                <td>{{ process.memory_percent }}%</td>
+                <td>{{ process.memory_info_vms }} MB</td>
+                <td>{{ process.memory_info_rss }} MB</td>
+                <td>{{ process.cpu_percent }} %</td>
             </tr>
-            </thead>
-            <tbody>
-            {% for process in page_obj %}
-                <tr>
-                    <td>{{ process.pid }}</td>
-                    <td><a class="process"
-                           href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
-                    <td>{{ process.username }}</td>
-                    <td>{{ process.status }}</td>
-                    <td>{{ process.memory_percent }}%</td>
-                    <td>{{ process.memory_info_vms }} MB</td>
-                    <td>{{ process.memory_info_rss }} MB</td>
-                    <td>{{ process.cpu_percent }} %</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <div class="pagination">
         <div class="container">
          <span class="step-links">
@@ -54,6 +53,4 @@
     </span>
         </div>
     </div>
-
-
 {% endblock %}
