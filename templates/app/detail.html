@@ -1,51 +1,72 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>Detalhes {{ process.name }}</h2>
-    <hr class="section-sep">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">{{ process.process.name }}</th>
-        </tr>
-        <tbody>
-        <tr>
-            <td><h5>PID</h5></td>
-            <td>{{ process.process.pid }}</td>
-        </tr>
-        <tr>
-            <td>Parent</td>
-            <td>{{ process.process.parent.name }}</td>
-        </tr>
-        <tr>
-            <td>Executavel</td>
-            <td>{{ process.process.exe }}</td>
-        </tr>
-        <tr>
-            <td>Usuário</td>
-            <td>{{ process.process.user }}</td>
-        </tr>
-        <tr>
-            <td>Gids</td>
-            <td>Pesquisar</td>
-        </tr>
-        <tr>
-            <td>Uids</td>
-            <td>Pesquisar</td>
-        </tr>
-        </tbody>
-        <tr>
-            <th scope="col">Memória</th>
-            <td> VMS: {{ process.process.memory.vms }} MB</td>
-            <td> RSS: {{ process.process.memory.rss }} MB</td>
-        </tr>
-        <tr>
-            <th scope="col">Terminal</th>
-            <td>None</td>
-        </tr>
-        <tr>
-            <th scope="col">Status</th>
-            <td>{{ process.process.status }}</td>
-        </tr>
-    </table>
+    <h3 class="process">{{ process.process.name }}({{ process.process.pid }})</h3>
+{#    <hr class="section-sep">#}
+    <div class="col">
+        <div class="nav-table-header">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
+                       aria-controls="nav-home" aria-selected="true">Home</a>
+                    <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
+                       aria-controls="nav-profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab"
+                       aria-controls="nav-contact" aria-selected="false">Contact</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    ...
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Variável</th>
+                <th scope="col">Valor</th>
+            </tr>
+            <tbody>
+            <tr>
+                <td>PID</td>
+                <td>{{ process.process.pid }}</td>
+            </tr>
+            <tr>
+                <td>Parent</td>
+                <td>{{ process.process.parent.name }}</td>
+            </tr>
+            <tr>
+                <td>Executavel</td>
+                <td>{{ process.process.exe }}</td>
+            </tr>
+            <tr>
+                <td>Usuário</td>
+                <td>{{ process.process.user }}</td>
+            </tr>
+            <tr>
+                <td>Gids</td>
+                <td>Pesquisar</td>
+            </tr>
+            <tr>
+                <td>Uids</td>
+                <td>Pesquisar</td>
+            </tr>
+            <tr>
+                <td>Memória</td>
+                <td> VMS: {{ process.process.memory.vms }} MB RSS: {{ process.process.memory.rss }} MB</td>
+            </tr>
+            <tr>
+                <td>Terminal</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>{{ process.process.status }}</td>
+            </tr>
+        </table>
+    </div>
+
 {% endblock %}

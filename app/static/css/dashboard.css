@@ -11,6 +11,11 @@ a.process {
     color: #2c384b;
 }
 
+h3.process {
+    color: #2c384b;
+    margin-top: 10px;
+    size: 0.8rem;
+}
 #nav-sidebar {
     position: relative;
     display: inline-flex;

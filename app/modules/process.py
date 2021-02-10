@@ -17,11 +17,11 @@ def get_process_info(pid):
         'memory': {
             'rss': psutil.Process(pid).memory_info().rss // 1048576,
             'vms': psutil.Process(pid).memory_info().vms // 1048576,
-            'shared': psutil.Process(pid).memory_info().shared,
+            # 'shared': psutil.Process(pid).memory_info().shared,
             # 'text': psutil.Process(pid).memory_info().text,
             # 'lib': psutil.Process(pid).memory_info().lib,
             # 'dirty': psutil.Process(pid).memory_info().dirty,
-            'posix': is_posix
+            # 'posix': is_posix,
         }
     }}
     return context
