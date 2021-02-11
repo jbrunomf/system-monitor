@@ -8,11 +8,12 @@
 
 a.process {
     text-decoration: none;
+    font-weight: 500;
     color: #3d729c;
 }
 
 h3.process {
-    color: #2c384b;
+    color: #3d729c;
     margin-top: 10px;
     size: 0.8rem;
 }
@@ -51,7 +52,7 @@ div#main-content.col {
 }
 
 #info-panel > h2 {
-    color: #2c384b;
+    color: #3d729c;
 }
 
 /*Footer*/
@@ -85,12 +86,12 @@ span.step-links {
 }
 
 span.current {
-    color: #2c384b;
+    color: #3d729c;
 }
 
 span.step-links > a {
     text-decoration: none;
-    color: #2c384b;
+    color: #3d729c;
 }
 
 #pagination-row {
@@ -110,7 +111,7 @@ span.step-links > a {
 }
 
 table.table {
-    color: slategray;
+    color: #3d729c;
     font-size: 1rem;
 }
 
