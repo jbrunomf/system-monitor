@@ -2,40 +2,40 @@
 
 
 {% block content %}
-    <h2>Processos</h2>
-    <hr class="section-sep">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">PID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Usuário</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Memoria %</th>
-            <th scope="col">VMS</th>
-            <th scope="col">RSS</th>
-            <th scope="col">CPU</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for process in page_obj %}
-            <tr>
-                <td>{{ process.pid }}</td>
-                <td><a class="process"
-                       href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
-                <td>{{ process.username }}</td>
-                <td>{{ process.status }}</td>
-                <td>{{ process.memory_percent }}%</td>
-                <td>{{ process.memory_info_vms }} MB</td>
-                <td>{{ process.memory_info_rss }} MB</td>
-                <td>{{ process.cpu_percent }} %</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <div class="pagination">
-        <div class="container">
+    <div class="col" id="display-tables">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" class="table-header">PID</th>
+                <th scope="col" class="table-header">Nome</th>
+                <th scope="col" class="table-header">Usuário</th>
+                <th scope="col" class="table-header">Estado</th>
+                <th scope="col" class="table-header">Memoria %</th>
+                <th scope="col" class="table-header">VMS</th>
+                <th scope="col" class="table-header">RSS</th>
+                <th scope="col" class="table-header">CPU</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for process in page_obj %}
+                <tr>
+                    <td>{{ process.pid }}</td>
+                    <td><a class="process"
+                           href="{% url 'process' process.pid %}">{{ process.name|truncatechars:30 }}</a></td>
+                    <td>{{ process.username }}</td>
+                    <td>{{ process.status }}</td>
+                    <td>{{ process.memory_percent }}%</td>
+                    <td>{{ process.memory_info_vms }} MB</td>
+                    <td>{{ process.memory_info_rss }} MB</td>
+                    <td>{{ process.cpu_percent }} %</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <div class="container">
          <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; primeira</a>
@@ -51,6 +51,8 @@
                  <a href="?page={{ page_obj.paginator.num_pages }}">útima &raquo;</a>
              {% endif %}
     </span>
+            </div>
         </div>
     </div>
+
 {% endblock %}

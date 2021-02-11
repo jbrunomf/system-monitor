@@ -8,7 +8,7 @@
 
 a.process {
     text-decoration: none;
-    color: #2c384b;
+    color: #3d729c;
 }
 
 h3.process {
@@ -39,16 +39,15 @@ span.icon {
 
 #info-panel {
     display: block;
-    border: dimgrey 2px solid;
-    border-radius: 15px;
+    /*border: dimgrey 2px solid;*/
+    /*border-radius: 15px;*/
     margin: 10px;
 }
 
 div#main-content.col {
     display: flex;
     padding: 10px;
-    /*background: #dddde9;*/
-    background: white;
+    background: #dddde9;
 }
 
 #info-panel > h2 {
@@ -100,8 +99,10 @@ span.step-links > a {
 
 /*Final pagination*/
 
+
+/*Table*/
+
 #display-tables {
-    position: relative;
     background: white;
     border: darkgray 1px solid;
     margin: 15px;
@@ -109,5 +110,29 @@ span.step-links > a {
 }
 
 table.table {
-    color: #2c384b;
+    color: slategray;
+    font-size: 1rem;
+}
+
+#tables-row {
+    display: flex;
+}
+
+.table-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3d729c;
+}
+
+.table-info {
+    font-size: 0.8rem;
+    font-weight: 500;
+     color: #3d729c;
+}
+
+.table-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #3d729c;
+    padding-top: 10px;
 }

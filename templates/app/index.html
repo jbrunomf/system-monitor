@@ -1,150 +1,147 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <div class="container-fluid">
-
-        <!--- Inicio Content --->
-        <h2>Overview</h2>
-        <hr class="section-sep">
-        <div class="row">
-            <div class="col-sm-3" id="display-tables">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="row">CPU</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Load average</td>
-                        <td>{{ cpu.load_average }}</td>
-                    </tr>
-                    <tr>
-                        <td>Cores</td>
-                        <td>{{ cpu.cores }}</td>
-                    </tr>
-                    <tr>
-                        <td>Threads</td>
-                        <td>{{ cpu.threads }}</td>
-                    </tr>
-                    <tr>
-                        <td>CPU Freq</td>
-                        <td>{{ cpu.current_freq.current }} GHz</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col" id="display-tables">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="row">Memoria</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Total</td>
-                        <td>{{ memory.total }} MB</td>
-                    </tr>
-                    <tr>
-                        <td>Livre</td>
-                        <td>{{ memory.available }} MB</td>
-                    </tr>
-                    <tr>
-                        <td>Em uso</td>
-                        <td>{{ memory.used }} MB {{ memory.percent_used }}%</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-sm-3" id="display-tables">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="row">Interface</th>
-                        <th scope="row">IP</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for network in network.status %}
-                        <tr>
-                            <td>{{ network.name }}</td>
-                            <td>{{ network.address }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+    <!--- Inicio Content --->
+    <h3 class="table-title">Overview</h3>
+    <hr class="section-sep">
+    <div class="row" id="tables-row">
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">CPU</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Load average</td>
+                    <td>{{ cpu.load_average }}</td>
+                </tr>
+                <tr>
+                    <td>Cores</td>
+                    <td>{{ cpu.cores }}</td>
+                </tr>
+                <tr>
+                    <td>Threads</td>
+                    <td>{{ cpu.threads }}</td>
+                </tr>
+                <tr>
+                    <td>CPU Freq</td>
+                    <td>{{ cpu.current_freq.current }} GHz</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        {#        final row 1#}
 
-        {#        inicio row 2#}
-        <div class="row">
-            <div class="col-sm-3" id="display-tables">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="row">Discos</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Ponto de montagem</td>
-                        <td>{{ disk.mountpoint }}</td>
-                    </tr>
-                    <tr>
-                        <td>Filesystem</td>
-                        <td>{{ disk.fstype }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">Memoria</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Total</td>
+                    <td>{{ memory.total }} MB</td>
+                </tr>
+                <tr>
+                    <td>Livre</td>
+                    <td>{{ memory.available }} MB</td>
+                </tr>
+                <tr>
+                    <td>Em uso</td>
+                    <td>{{ memory.used }} MB {{ memory.percent_used }}%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <div class="col-sm-3" id="display-tables">
-                <table class="table">
-                    <thead>
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">Interface</th>
+                    <th scope="row">IP</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for network in network.status %}
                     <tr>
-                        <th scope="row">Swap</th>
+                        <td>{{ network.name }}</td>
+                        <td>{{ network.address }}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Total</td>
-                        <td>{{ swap.total }} MB</td>
-                    </tr>
-                    <tr>
-                        <td>Usado</td>
-                        <td>{{ swap.used }} MB</td>
-                    </tr>
-                    <tr>
-                        <td>Livre</td>
-                        <td>{{ swap.free }} MB</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {#        final row 1#}
 
-            <div class="col" id="display-tables">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="row">Usuários</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Usuário</td>
-                        <td>{{ users.name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Terminal</td>
-                        <td>{{ users.terminal }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+    {#        inicio row 2#}
+    <div class="row" id="tables-row">
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">Discos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ponto de montagem</td>
+                    <td>{{ disk.mountpoint }}</td>
+                </tr>
+                <tr>
+                    <td>Filesystem</td>
+                    <td>{{ disk.fstype }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">Swap</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Total</td>
+                    <td>{{ swap.total }} MB</td>
+                </tr>
+                <tr>
+                    <td>Usado</td>
+                    <td>{{ swap.used }} MB</td>
+                </tr>
+                <tr>
+                    <td>Livre</td>
+                    <td>{{ swap.free }} MB</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col" id="display-tables">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="row">Usuários</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Usuário</td>
+                    <td>{{ users.name }}</td>
+                </tr>
+                <tr>
+                    <td>Terminal</td>
+                    <td>{{ users.terminal }}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}
